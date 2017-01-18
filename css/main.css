@@ -1,0 +1,86 @@
+body {
+  background-color: #000000;
+  font-family: 'Domine', serif;
+  text-align: center;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  color: #ffffff;
+}
+
+li {
+  font-size: 1.5em;
+  margin: 0 25%;
+}
+
+button[type=button] {
+  color: white;
+  width: 15%;
+  border: none;
+  font-family: 'Montserrat', sans-serif;
+}
+
+input[type=text] {
+  border: gray solid 2px;
+  padding: .5em;
+  width: 30%;
+}
+
+ul {
+  list-style: none;
+}
+
+.lists {
+  text-align: left;
+}
+
+.fa, .fa-square-o, .fa-check-square {
+  margin-right: .75em;
+}
+
+i {
+  margin-right: .75em;
+}
+
+#add-btn {
+  background-color: #192A51;
+  padding: .5em 1em;
+  color: white;
+  width: 15%;
+  border: none;
+}
+
+.delete-btn {
+    padding: .5em;
+    font-size: .5em;
+    background-color: darkred;
+    margin-bottom: 0px;
+    margin-left: inherit;
+    display: none;
+}
+
+li:hover .delete-btn{
+  display: inline;
+}
+
+.margin-top {
+  margin-top: 4%;
+}
+
+@media (max-width: 700px) {
+  input[type=text], input[type=button] {
+    width: 60%;
+  }
+  input[type=button] {
+    margin-top: .5em;
+  }
+}
+
+@media (max-width: 625px) {
+  p {
+    font-size: 1.25em;
+    margin: 0 15%;
+  }
+}
