@@ -1,6 +1,6 @@
 body {
   background-color: #000000;
-  font-family: 'Domine', serif;
+  font-family: 'Playfair Display', serif;
   text-align: center;
 }
 
@@ -45,7 +45,7 @@ i {
 }
 
 #add-btn {
-  background-color: #192A51;
+  background-color: #990000;
   padding: .5em 1em;
   color: white;
   width: 15%;
@@ -67,6 +67,20 @@ li:hover .delete-btn{
 
 .margin-top {
   margin-top: 4%;
+}
+
+.tv {
+  margin: 0 auto;
+  width: 50%;
+}
+
+label {
+  color: #ffffff;
+  margin-left: 1%;
+}
+
+input[type=radio] {
+  margin-left: 4%;
 }
 
 @media (max-width: 700px) {
