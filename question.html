@@ -8,22 +8,53 @@
 	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
 	<script language="JavaScript" type="text/javascript" src="https://code.jquery.com/jquery.min.js"></script>
-	<script src="https://use.fontawesome.com/58a0820d2f.js"></script>
 	<script language="JavaScript" type="text/javascript" src="js/app.js"></script>
 </head>
 <body>
 <div>
 	<h1 class="margin-top">Binge Watchers Quiz</h1>
 	<div></div>
-	<h3 class="margin-top">Which show was the most expensive show to produce in television history?</h3>
+	<h3 class="question">Which show was the most expensive to produce in television history?</h3>
 	<form>
-	<input type="radio" name="q1" value="Game of Thrones" id="GOT" checked><label for="GOT">Game of Thrones</label>
-	<input type="radio" name="q1" value="The Crown" id="Crown"><label for="Crown">The Crown</label>
-	<input type="radio" name="q1" value="other" id="Polp"><label for="Polo">Marco Polo</label>
+	<input type="radio" name="q1" value="Game-of-Thrones" id="q1-radio1"/><label for="GOT">Game of Thrones</label>
+	<input type="radio" name="q1" value="The-Crown" id="q1-radio2"/><label for="Crown">The Crown</label>
+	<input type="radio" name="q1" value="Marco-Polo" id="q1-radio3"/><label for="Polo">Marco Polo</label>
 	</form>
 	<div class="margin-top">
-		<button type="button" value="Add to List" id="add-btn">Submit</button>
+		<button type="button" value="Next" id="next-btn">Next</button>
 	</div>
 </div>
 </body>
 </html>
+
+<!--
+Q1
+Which show was the most expensive to produce in television history?
+Game of Throne, The Crown, Marco Polo
+
+Q2
+Which show chashed Netflix upon being release during the fall of 2016?
+Gilmore Girls, Black Mirror, Luke Cage
+
+Q3
+Which show is based on a fictional history novel about the United States losing World War II?
+The Aftermath, The Man in the High Castle, The Colony
+
+Q4
+What is the surname of the main characters in House of Cards?
+The Habermans, The Lindlemans, The Underwoods
+
+Q5
+Which series was canceled by a major tradidtional network after season three then picked up by Hulu?
+The Mindy Project, Difficult People, Casual
+
+['The Crown','Luke Cage','The Man in the High Castle', 'The-Underwoods', 'The Mindy Project']
+
+['Which show was the most expensive to produce in television history?','Which show chashed Netflix upon being release during the fall of 2016?','Which show is based on a fictional history novel about the United States losing World War II?','What is the surname of the main characters in House of Cards?','Which series was canceled by a major tradidtional network after season three then picked up by Hulu?']
+
+['Game of Throne', 'The Crown', 'Marco Polo']
+['Gilmore Girls', 'Black Mirror', 'Luke Cage']
+['The Aftermath', 'The Man in the High Castle', 'The Colony']
+['The Habermans', 'The Lindlemans', 'The Underwoods']
+['The Mindy Project', 'Difficult People', 'Casual']
+-->

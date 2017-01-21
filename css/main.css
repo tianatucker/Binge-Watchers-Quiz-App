@@ -74,6 +74,10 @@ li:hover .delete-btn{
   width: 50%;
 }
 
+.question{
+  margin-top: 8%;
+}
+
 label {
   color: #ffffff;
   margin-left: 1%;
