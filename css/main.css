@@ -44,12 +44,13 @@ i {
   margin-right: .75em;
 }
 
-#add-btn {
+#next-btn {
   background-color: #990000;
   padding: .5em 1em;
   color: white;
   width: 15%;
   border: none;
+  margin-top: 5%;
 }
 
 .delete-btn {
