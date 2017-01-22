@@ -53,13 +53,13 @@ i {
   margin-top: 5%;
 }
 
-.delete-btn {
-    padding: .5em;
-    font-size: .5em;
-    background-color: darkred;
-    margin-bottom: 0px;
-    margin-left: inherit;
-    display: none;
+button[disabled], html input[disabled] {
+  cursor: not-allowed;
+  background-color: grey;
+}
+
+button {
+  cursor: pointer;
 }
 
 li:hover .delete-btn{

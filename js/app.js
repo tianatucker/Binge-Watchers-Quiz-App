@@ -1,21 +1,32 @@
 $(document).ready(function(){
 
+$('form').change(function(){
+	$('input[type="button"]').prop({
+		disabled: false
+	})
 $('#next-btn').click(function(){
+	var userResponse = $('input[name=radio-btn]:checked', '#current-question').val();
+	userAnswers.push(userResponse);
+	$('h3.question').replaceWith('<h3 class="question">' + questions[1] + '</h3>');
+})
+
+});
+
+/*$('#next-btn').click(function(){
 	var userResponse = $('input[name=radio-btn]:checked', '#current-question').val();
 	console.log(userResponse);
 if (typeof $('input[name=radio-btn]:checked').val() != undefined){
-alert('Select one');
+alert('Select one')
 } else {
-	userAnswers.push('userResponse');
+	userAnswers.push(userResponse);
 	console.log(userAnswers);
 }
-})
+})*/
 });
 
 //Check that value is selected
 //Check value for correct response
 //Add tally to score if response is correct
-
 //User Responses
 var userAnswers = []
 
