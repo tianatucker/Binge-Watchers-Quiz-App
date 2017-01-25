@@ -4,10 +4,15 @@ $('form').change(function(){
 	$('input[type="button"]').prop({
 		disabled: false
 	})
+
 $('#next-btn').click(function(){
 	var userResponse = $('input[name=radio-btn]:checked', '#current-question').val();
 	userAnswers.push(userResponse);
 	$('h3.question').replaceWith('<h3 class="question">' + questions[1] + '</h3>');
+	$('label[for=radio1]').replaceWith('<label for="radio1">' + radio1Choices[1] + '</label>');
+	$('label[for=radio2]').replaceWith('<label for="radio2">' + radio2Choices[1] + '</label>');
+	$('label[for=radio3]').replaceWith('<label for="radio3">' + radio3Choices[1] + '</label>');
+	console.log(userAnswers);
 })
 
 });
@@ -32,12 +37,23 @@ var userAnswers = []
 
 //Correct answers
 var correctAnswers = ['The-Crown','Luke-Cage','The-Man-in-the-High-Castle', 'The-Underwoods', 'The-Mindy-Project']
+//Correct answers radio button position value
+var correctRadios = ['radio2', 'radio3', 'radio2', 'radio3', 'radio1']
 
 //All Questions
-var questions = ['Which show was the most expensive to produce in television history?','Which show chashed Netflix upon being release during the fall of 2016?','Which show is based on a fictional history novel about the United States losing World War II?','What is the surname of the main characters in the House of Cards?','Which series was canceled by a major tradidtional network after season three then picked up by Hulu?']
+var questions = ['Which show was the most expensive to produce in television history?','Which show crashed the Netflix application upon being release during the fall of 2016?','Which show is based on a fictional history novel about the United States losing World War II?','What is the surname of the main characters in the House of Cards?','Which series was canceled by a major tradidtional network after season three then picked up by Hulu?']
+
+//Choices in first radio button position
+var radio1Choices = ['Game of Thrones', 'Gilmore Girls', 'The Aftermath', 'The Habermans', 'The Mindy Project']
+
+//Choices in second radio button position
+var radio2Choices = ['The Crown', 'Black Mirror', 'The Man in the High Castle', 'The Lindlemans', 'Difficult People']
+
+//Choices in thrid radio button position
+var radio3Choices = ['Marco Polo', 'Luke Cage', 'The Colony', 'The Underwoods', 'Casual']
 
 //Question One Choices
-var choicesQ1 = ['Game of Throne', 'The Crown', 'Marco Polo']
+var choicesQ1 = ['Game of Thrones', 'The Crown', 'Marco Polo']
 
 //Question Two Choices
 var choicesQ2 = ['Gilmore Girls', 'Black Mirror', 'Luke Cage']
