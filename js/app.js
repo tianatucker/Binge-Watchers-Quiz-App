@@ -32,37 +32,24 @@ alert('Select one')
 //Check that value is selected
 //Check value for correct response
 //Add tally to score if response is correct
+//You need user states for each game
+//Need to regenerate the html with jquery in order to get the right values for each round of questions
+
+
 //User Responses
 var userAnswers = []
+
+var questionOne = ['Which show was the most expensive to produce in television history?','Game of Thrones', 'The Crown', 'Marco Polo']
+
+var questionTwo = ['Which show crashed the Netflix application upon being release during the fall of 2016?', 'Gilmore Girls', 'Black Mirror', 'Luke Cage']
+
+var questionThree = ['Which show is based on a fictional history novel about the United States losing World War II?', 'The Aftermath', 'The Man in the High Castle', 'The Colony']
+
+var questionFour = ['What is the surname of the power couple in House of Cards?', 'The Habermans', 'The Lindlemans', 'The Underwoods']
+
+var questionFive = ['Which series was canceled by a major tradidtional network after season three then picked up by Hulu?', 'The Mindy Project', 'Difficult People', 'Casual']
 
 //Correct answers
 var correctAnswers = ['The-Crown','Luke-Cage','The-Man-in-the-High-Castle', 'The-Underwoods', 'The-Mindy-Project']
 //Correct answers radio button position value
 var correctRadios = ['radio2', 'radio3', 'radio2', 'radio3', 'radio1']
-
-//All Questions
-var questions = ['Which show was the most expensive to produce in television history?','Which show crashed the Netflix application upon being release during the fall of 2016?','Which show is based on a fictional history novel about the United States losing World War II?','What is the surname of the main characters in the House of Cards?','Which series was canceled by a major tradidtional network after season three then picked up by Hulu?']
-
-//Choices in first radio button position
-var radio1Choices = ['Game of Thrones', 'Gilmore Girls', 'The Aftermath', 'The Habermans', 'The Mindy Project']
-
-//Choices in second radio button position
-var radio2Choices = ['The Crown', 'Black Mirror', 'The Man in the High Castle', 'The Lindlemans', 'Difficult People']
-
-//Choices in thrid radio button position
-var radio3Choices = ['Marco Polo', 'Luke Cage', 'The Colony', 'The Underwoods', 'Casual']
-
-//Question One Choices
-var choicesQ1 = ['Game of Thrones', 'The Crown', 'Marco Polo']
-
-//Question Two Choices
-var choicesQ2 = ['Gilmore Girls', 'Black Mirror', 'Luke Cage']
-
-//Question Three Choices
-var choicesQ3 = ['The Aftermath', 'The Man in the High Castle', 'The Colony']
-
-//Question Four Choices
-var choicesQ4	= ['The Habermans', 'The Lindlemans', 'The Underwoods']
-
-//Question Five Choices
-var chociesQ5 = ['The Mindy Project', 'Difficult People', 'Casual']
