@@ -53,6 +53,9 @@ i {
   margin-top: 5%;
 }
 
+.list-style {
+  list-style: none;
+}
 button[disabled], html input[disabled] {
   cursor: not-allowed;
   background-color: grey;
@@ -93,9 +96,9 @@ label {
   margin-left: 1%;
 }
 
-input[type=radio] {
+/*input[type=radio] {
   margin-left: 4%;
-}
+}*/
 
 @media (max-width: 700px) {
   input[type=text], input[type=button] {

@@ -11,16 +11,19 @@
 	<script language="JavaScript" type="text/javascript" src="js/app.js"></script>
 </head>
 <body>
-<div>
 	<h1 class="margin-top">Binge Watchers Quiz</h1>
-	<h3 class="question">Which show was the most expensive to produce in television history?</h3>
+<div class="quiz-here">
+	<h3 class="question" id="questionTime">Question</h3>
 	<form id="current-question">
-		<input type="radio" name="radio-btn" value="radio1" id="radio1"/><label for="radio1">Game of Thrones</label>
-		<input type="radio" name="radio-btn" value="radio2" id="radio2"/><label for="radio2">The Crown</label>
-		<input type="radio" name="radio-btn" value="radio3" id="radio3"/><label for="radio3">Marco Polo</label>
+		<input type="radio" name="radio-btn" value="radio1" id="radio1"/><label for="radio1">Choice1</label>
+		<input type="radio" name="radio-btn" value="radio2" id="radio2"/><label for="radio2">Choice2</label>
+		<input type="radio" name="radio-btn" value="radio3" id="radio3"/><label for="radio3">Choice3</label>
 	<br />
-		<input type="button" value="Next" id="next-btn" disabled="true" />
+		<input type="button" value="Next" id="next-btn"/>
 	</form>
+</div>
+<div id="choose">
+	<input type="button" value="Next" id="next-btn" />
 </div>
 </body>
 </html>
