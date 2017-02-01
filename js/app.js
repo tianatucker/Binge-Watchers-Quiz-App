@@ -4,7 +4,7 @@ var userQuest = {
 	currentProgress: 0,
 }
 
-var myIndex = 0;
+var myIndex = -1;
 
 /*function newButton(){
 var noClick = $('input[type="button"]').replaceWith('<input type="button" value="Next" id="next-btn" disabled="true" />');
@@ -23,7 +23,9 @@ renderQuestion();
 function renderQuestion(){
 	var c = userQuest.currentProgress;
 	var q = quiz[c];
-	var html = '<h3 class="question">' + q.prompt + '</h3>'
+	var p = c +1;
+	var l = 5 - p;
+	var html = '<h3 class="question">'+'Question '+ p +'<br>' + q.prompt + '</h3>' + '<h6>' + l + ' questions remaining' + '</h6>'
 	c++
 	for (var i=0; i<q.options.length;i++){
 		var a = q.options[i];
@@ -31,11 +33,11 @@ function renderQuestion(){
 	}
 	return html;
 }
-/*$('input[type="radio"]').change(function(){
-	$('input[type="button"]').prop({
-		disabled: false
-	})
-})*/
+
+/*function gameOver() {
+	var html = '<h3>' + 'You\'ve finished the game' + '</h3>'
+	return html;
+}*/
 
 $('#next-btn').click(function(){
 	myIndex++;
@@ -43,11 +45,24 @@ $('#next-btn').click(function(){
 	var userResponse = $('input[name=radio-btn]:checked').val();
 	userAnswers.push(userResponse);
 	if (userResponse == undefined) {
-		alert("Please select a choice to continue.")
-}
+		alert("Please select one to continue.")
+		userQuest.currentProgress--
+		myIndex--
+		userAnswers.pop();
+} else {
 	$('.quiz-here').html(renderQuestion());
+	var s = 0;
+	if (userAnswers[myIndex] == correctAnswers[myIndex]) {
+		s++
+	} else {
+		s+0
+	}
 	//newButton();
 	console.log(userAnswers);
+	console.log(myIndex);
+	}  /*if (quiz.prompt == undefined) {
+	$('.quiz-here').html(gameOver());
+}*/
 })
 });
 
