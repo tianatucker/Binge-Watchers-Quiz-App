@@ -16,6 +16,7 @@ $('input[type="radio"]').change(function(){
 })
 }*/
 var userAnswers = []
+var points = 0;
 
 $('.quiz-here').html(renderQuestion());
 
@@ -34,6 +35,19 @@ function renderQuestion(){
 	return html;
 }
 
+function checkAnswers(){
+	if (userAnswers[myIndex] === correctAnswers[myIndex]){
+		points++;
+	}
+}
+
+function startOver(){
+	userAnswers = []
+	points = 0;
+	myIndex = -1;
+	userQuest.currentProgress = 0;
+}
+
 /*function gameOver() {
 	var html = '<h3>' + 'You\'ve finished the game' + '</h3>'
 	return html;
@@ -44,18 +58,22 @@ $('#next-btn').click(function(){
 	userQuest.currentProgress++;
 	var userResponse = $('input[name=radio-btn]:checked').val();
 	userAnswers.push(userResponse);
+	checkAnswers();
+	console.log(points);
+		console.log(userAnswers);
 	if (userResponse == undefined) {
 		alert("Please select one to continue.")
 		userQuest.currentProgress--
 		myIndex--
 		userAnswers.pop();
 } else if (myIndex >= 4) {
-	$('div.quiz-here').replaceWith('<h3>' + 'You\'ve finished the game' + '</h3>');
+	checkAnswers();
+	$('div.quiz-here').replaceWith('<h3>' + 'You\'ve finished the game!' + '</h3>' + '<h5>' + 'You answered ' + points + ' questions correctly.'+ '</h5>');
 } else {
 	$('.quiz-here').html(renderQuestion());
 	//newButton();
-	console.log(userAnswers);
-	console.log(myIndex);
+	//console.log(userAnswers);
+	//console.log(myIndex);
 	}  /*if (quiz.prompt == undefined) {
 	$('.quiz-here').html(gameOver());
 }*/
@@ -148,7 +166,7 @@ var quiz =[
 			options:[
 				'The Aftermath',
 				'The Man in the High Castle',
-				'Luke Cage'
+				'The Colony'
 			],
 		},
 		{
