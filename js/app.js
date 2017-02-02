@@ -49,14 +49,10 @@ $('#next-btn').click(function(){
 		userQuest.currentProgress--
 		myIndex--
 		userAnswers.pop();
+} else if (myIndex >= 4) {
+	$('div.quiz-here').replaceWith('<h3>' + 'You\'ve finished the game' + '</h3>');
 } else {
 	$('.quiz-here').html(renderQuestion());
-	var s = 0;
-	if (userAnswers[myIndex] == correctAnswers[myIndex]) {
-		s++
-	} else {
-		s+0
-	}
 	//newButton();
 	console.log(userAnswers);
 	console.log(myIndex);
