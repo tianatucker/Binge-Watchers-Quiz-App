@@ -44,7 +44,7 @@ i {
   margin-right: .75em;
 }
 
-#next-btn {
+#next-btn, #start-over {
   background-color: #990000;
   padding: .5em 1em;
   color: white;

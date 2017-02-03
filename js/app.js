@@ -1,31 +1,22 @@
 $(document).ready(function(){
-var userQuest = {
-	started:false,
-	currentProgress: 0,
-}
-
+var currentProgress = 0;
 var myIndex = -1;
-
-/*function newButton(){
-var noClick = $('input[type="button"]').replaceWith('<input type="button" value="Next" id="next-btn" disabled="true" />');
-
-$('input[type="radio"]').change(function(){
-	$('input[type="button"]').prop({
-		disabled: false
-	})
-})
-}*/
 var userAnswers = []
 var points = 0;
 
 $('.quiz-here').html(renderQuestion());
-
+console.log('currentProgress',currentProgress);
 renderQuestion();
 function renderQuestion(){
-	var c = userQuest.currentProgress;
+	var c = currentProgress;
 	var q = quiz[c];
 	var p = c +1;
 	var l = 5 - p;
+	if (c <= 5){
+		c = 0;
+	}
+	console.log('q.prompt', q.prompt);
+	console.log('c',c);
 	var html = '<h3 class="question">'+'Question '+ p +'<br>' + q.prompt + '</h3>' + '<h6>' + l + ' questions remaining' + '</h6>'
 	c++
 	for (var i=0; i<q.options.length;i++){
@@ -41,42 +32,40 @@ function checkAnswers(){
 	}
 }
 
-function startOver(){
-	userAnswers = []
-	points = 0;
-	myIndex = -1;
-	userQuest.currentProgress = 0;
+function playAgain(){
+	var currentProgress = 0;
+	var userAnswers = [];
+	var points = 0;
+	var myIndex = -1;
+	$('div.quiz-here').empty();
+	$('div.quiz-here').append(renderQuestion());
+	$('input[type=button]').replaceWith('<input type="button" value="Next" id="next-btn" />');
 }
-
-/*function gameOver() {
-	var html = '<h3>' + 'You\'ve finished the game' + '</h3>'
-	return html;
-}*/
 
 $('#next-btn').click(function(){
 	myIndex++;
-	userQuest.currentProgress++;
+	currentProgress++;
 	var userResponse = $('input[name=radio-btn]:checked').val();
 	userAnswers.push(userResponse);
 	checkAnswers();
-	console.log(points);
+	console.log('points',points);
 		console.log(userAnswers);
 	if (userResponse == undefined) {
 		alert("Please select one to continue.")
-		userQuest.currentProgress--
+		currentProgress--
 		myIndex--
 		userAnswers.pop();
 } else if (myIndex >= 4) {
 	checkAnswers();
-	$('div.quiz-here').replaceWith('<h3>' + 'You\'ve finished the game!' + '</h3>' + '<h5>' + 'You answered ' + points + ' questions correctly.'+ '</h5>');
+	$('div.quiz-here').replaceWith('<div class="quiz-here"><h3>' + 'You\'ve finished the game!' + '</h3>' + '<h5>' + 'You answered ' + points + ' questions correctly.'+ '</h5></div>');
+	$('input[type=button]').replaceWith('<input type="button" value="Start Over" id="start-over" />');
+	$('#start-over').click(function(){
+		console.log('#start-over');
+		playAgain();
+	})
 } else {
 	$('.quiz-here').html(renderQuestion());
-	//newButton();
-	//console.log(userAnswers);
-	//console.log(myIndex);
-	}  /*if (quiz.prompt == undefined) {
-	$('.quiz-here').html(gameOver());
-}*/
+	}
 })
 });
 
@@ -186,20 +175,9 @@ var quiz =[
 			],
 		}
 	];
-var questionOne = ['Which show was the most expensive to produce in television history?','Game of Thrones', 'The Crown', 'Marco Polo']
-
-var questionTwo = ['Which show crashed the Netflix application upon being release during the fall of 2016?', 'Gilmore Girls', 'Black Mirror', 'Luke Cage']
-
-var questionThree = ['Which show is based on a fictional history novel about the United States losing World War II?', 'The Aftermath', 'The Man in the High Castle', 'The Colony']
-
-var questionFour = ['What is the surname of the power couple in House of Cards?', 'The Habermans', 'The Lindlemans', 'The Underwoods']
-
-var questionFive = ['Which series was canceled by a major tradidtional network after season three then picked up by Hulu?', 'The Mindy Project', 'Difficult People', 'Casual']
 
 //Correct answers
 var correctAnswers = ['The Crown','Luke Cage','The Man in the High Castle', 'The Underwoods', 'The Mindy Project']
-//Correct answers radio button position value
-var correctRadios = ['radio2', 'radio3', 'radio2', 'radio3', 'radio1']
 
 //Need to figure out which question the user is on at each stage
 
