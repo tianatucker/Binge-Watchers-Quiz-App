@@ -50,70 +50,63 @@ var points = 0;
 
 
 $(document).ready(function() {
-
-    //use the start over function on the initial start and on the all other starts
-
+	//Start quiz
     $('.quiz-here').html(renderQuestion());
 
     function renderQuestion() {
         var q = quiz[currentProgress];
+
+        //Current question number
         var p = currentProgress + 1;
+
+        //Number of questions left
         var l = 5 - p;
-        //Maybe move this to the global scope aka outside of this function
-        console.log('q.prompt', q.prompt);
-        console.log('currentProgress', currentProgress);
+
+        //Render question and number of questions left
         var html = '<h3 class="question">' + 'Question ' + p + '<br>' + q.prompt + '</h3>' + '<h6>' + l + ' questions remaining' + '</h6>'
-        //c++
+
         for (var i = 0; i < q.options.length; i++) {
-            //var a = q.options[i];
+            //Render the question choices
             html += '<br><input type="radio" name="radio-btn" value="' + q.options[i] + '"><label for="radio3" value="' + q.options[i] + '">' + q.options[i] + '</label><br>'
         }
         return html;
     }
 
     function checkAnswers() {
+    	//Compare the user answer to the correct answer
         if ( userAnswers[myIndex] === correctAnswers[myIndex] ) {
             points++;
         }
-    }
-
-    function playAgain() {
-        currentProgress = 0;
-        userAnswers = [];
-        points = 0;
-        myIndex = 0;
-        $('div.quiz-here').empty();
-        $('div.quiz-here').append(renderQuestion());
-        $('input[type=button]').replaceWith('<input type="button" value="Next" id="next-btn" />');
-        window.location.reload(true);
     }
 
     $('#next-btn').click(function() {
     	console.log('x');
         myIndex++;
         currentProgress++;
+        //Get the value of the selected radio button
         var userResponse = $('input[name=radio-btn]:checked').val();
         userAnswers.push(userResponse);
         checkAnswers();
-        console.log('points', points);
-        //console.log(userAnswers);
         if (userResponse == undefined) {
+        	//Tell the user that they put make choice to continue
             alert("Please select one to continue.")
             currentProgress--
             myIndex--
+            //Remove the undefined choice from the array
             userAnswers.pop();
         	} else if (myIndex >= 4) {
             checkAnswers();
+            	//Display end of game message and score
             	$('div.quiz-here').replaceWith('<div class="quiz-here"><h3>' + 'You\'ve finished the game!' + '</h3>' + '<h5>' + 'You answered ' + points + ' questions correctly.' + '</h5></div>');
             	$('input[type=button]').replaceWith('<input type="button" value="Start Over" id="start-over" />');
+            	//Reload the page to start a new game
             	$('#start-over').click(function() {
-                console.log('#start-over');
                  window.location.reload(true);
             	})
         	} else {
+        	//Move on to the next question
             $('.quiz-here').html(renderQuestion());
         	}
-                    console.log('clicked','#next-btn')
     	});
 });
 
